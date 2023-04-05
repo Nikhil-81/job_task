@@ -8,7 +8,7 @@ export default function Dashbord(){
         <Sidebar/>
         <div>
         <NavBar/>
-      <div>
+      <div className="dash_con" >
         <h1>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio non libero illo pariatur hic necessitatibus quod? Vero tempora dolore velit vitae, perspiciatis enim facilis natus veritatis explicabo sunt placeat aliquam?</h1>
       </div>
         </div>

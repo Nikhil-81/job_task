@@ -10,9 +10,26 @@ import {
   Select,
   Text,
 } from "@chakra-ui/react";
+import { useState } from "react";
 import india_flag from "../images/india.png";
+import uk_flag from "../images/united-kingdom.png";
+import usa_flag from "../images/united-states.png";
+
 import "../styles/nav.css"
+
+let flags={
+    in:india_flag,
+    us:usa_flag,
+    uk:uk_flag
+}
 export default function NavBar() {
+
+const [countryImg,setcountry_img]=useState(uk_flag)
+function hendleChange(data){
+setcountry_img(flags[data])
+
+}
+
   return (
    
     <div className="nav_main" >
@@ -39,12 +56,14 @@ export default function NavBar() {
         </span>
         <Flex  >
           <span>
-            <Image src={india_flag} boxSize="30px" />
+            {countryImg?(
+                <Image src={countryImg} boxSize="30px" />
+                ):<></>}
           </span>
-          <Select placeholder="Select option" className="con_select" >
+          <Select variant="unstyled" placeholder="Language" className="con_select" onChange={(e)=>hendleChange(e.target.value)}  >
             <option value="us">English</option>
             <option value="in">Hindi</option>
-            <option variant="unstyled" value="uk">
+            <option  value="uk">
               English
             </option>
           </Select>

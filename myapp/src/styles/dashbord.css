@@ -1,4 +1,10 @@
 .dash_main{
-    display: flex;
-    
+
+display: flex;
+}
+
+.dash_con{
+    background-color: #F5F6FA;
+    height: 100vh;
+    overflow-x: hidden;
 }
