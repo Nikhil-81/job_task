@@ -1,6 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 import AllRouter from './rout/allrout';
+import "./styles/global.css"
 
 function App() {
   return (

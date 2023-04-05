@@ -1,0 +1,43 @@
+.nav_main{
+    display: grid;
+    grid-template-columns:1.3fr 1fr;
+    background-color: white;
+    padding: 1rem;
+    height: 70px;
+    /* border: 1px solid black; */
+}
+.Nav_inputbar{
+    width: 24rem ;
+    border-radius: 50px !important;
+}
+.hamburgar{
+    margin-left: 31px;
+    margin-right: 25px;
+}
+.contacts_nav{
+    justify-content: space-around;
+}
+
+.con_select{
+    margin-left: 1rem;
+    border: white !important;
+}
+.drop_doun_arrow{
+    border: 1px solid #5C5C5C;
+    border-radius: 50px;
+}
+
+.bell_icon{
+position: absolute;
+}
+.notification_num{
+position: relative;
+top: -8px;
+right: -16px;
+background-color: red;
+color: white;
+width: 20px;
+height: 20px;
+border-radius: 50px;
+
+}
