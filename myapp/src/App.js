@@ -9,7 +9,7 @@ function App() {
   return (
     <div className="App">
       <Sidebar/>
-      <div>
+      <div Style={"width:100vw;  background:#F5F5F5;"} >
         <NavBar/>
         <AllRouter/>
       </div>

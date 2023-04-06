@@ -35,12 +35,12 @@ function hendleClick(e){
             <Text fontSize="20px" ><span style={{color:"#4880FF"}} >Bright</span> Web</Text>
             </div>
             <div>
-                {true && sidebar_handles.map(el=>(<Link to={el.rout} ><Flex bg={tab==el.text?"#4880FF":""} onClick={(e)=>settab(e.target.id)} id={el.text}    className="sidebar_groups"  ><el.icon color={tab==el.text?"white":"black"} /> <Text id={el.text} onClick={(e)=>settab(e.target.id)} color={tab==el.text?"white":"black"}  >{el.text}</Text></Flex></Link>))}
+                {true && sidebar_handles.map(el=>(<Link to={el.rout} ><Flex bg={tab==el.text?"#4880FF":""} onClick={(e)=>settab(e.target.id)} id={el.text}    className="sidebar_groups"  ><el.icon color={tab==el.text?"white":"black"} /> <Text id={el.text} fontSize="14px" onClick={(e)=>settab(e.target.id)} color={tab==el.text?"white":"black"}  >{el.text}</Text></Flex></Link>))}
             </div>
             <hr/>
             <div>
                 <Text color="gray.400" >Pages</Text>
-                {true && sidebar_pages.map(el=>(<Link to={el.rout} ><Flex bg={tab==el.text?"#4880FF":""} onClick={(e)=>settab(e.target.id)} id={el.text}    className="sidebar_groups"  ><el.icon color={tab==el.text?"white":"black"} /> <Text id={el.text} onClick={(e)=>settab(e.target.id)} color={tab==el.text?"white":"black"}  >{el.text}</Text></Flex></Link>))}
+                {true && sidebar_pages.map(el=>(<Link to={el.rout} ><Flex bg={tab==el.text?"#4880FF":""} onClick={(e)=>settab(e.target.id)} id={el.text}    className="sidebar_groups"  ><el.icon color={tab==el.text?"white":"black"} /> <Text id={el.text} fontSize="14px" onClick={(e)=>settab(e.target.id)} color={tab==el.text?"white":"black"}  >{el.text}</Text></Flex></Link>))}
             </div>
         </div>
     )
