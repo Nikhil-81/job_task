@@ -14,7 +14,7 @@ export default function Stock_reducer(state=init_state, { type, payload }) {
     case STOCK_GET_REQUEST: {
       return {
         ...state,
-        stock_loaad: true,
+        stock_load: true,
         stock_sucess: false,
         stock_error: false,
       };
@@ -22,7 +22,7 @@ export default function Stock_reducer(state=init_state, { type, payload }) {
     case STOCK_GET_SUCESS: {
       return {
         ...state,
-        stock_loaad: false,
+        stock_load: false,
         stock_sucess: true,
         stock_error: false,
         data: payload,
@@ -31,7 +31,7 @@ export default function Stock_reducer(state=init_state, { type, payload }) {
     case STOCK_GET_ERROR: {
       return {
         ...state,
-        stock_loaad: false,
+        stock_load: false,
         stock_sucess: false,
         stock_error: true,
       };

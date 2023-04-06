@@ -12,6 +12,7 @@
 .stocks_table{
     border-radius: 6px;
     background-color: white;
+    margin-top: 30px;
 }
 
 .stock_table_image{
@@ -30,7 +31,7 @@ width: 1.25rem;
 }
 
 .editIcon{
-border: 1px solid black;
+border: 1px solid #D5D5D5;
 border-bottom-left-radius:8px ;
 border-top-left-radius: 8px;
 width: 2.625rem;
@@ -42,7 +43,7 @@ background-color: #FAFBFD;
 
 }
 .DeleitIcon{
-    border: 1px solid black;
+    border: 1px solid #D5D5D5;
     border-top-right-radius: 8px;
     border-bottom-right-radius: 8px;
     width: 2.625rem;
@@ -55,3 +56,11 @@ background-color: #FAFBFD;
 
 
 }
+
+.stock_section_3{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 38px;
+}
+

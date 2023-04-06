@@ -18,3 +18,10 @@
 .sidebar_groups P{
     margin-left: 16PX;
 }
+
+.sidebar_heading_text{
+    text-align: start;
+    margin-left: 26px;
+    font-size: 14px;
+    margin: 16px 0px 16px 29px;
+}

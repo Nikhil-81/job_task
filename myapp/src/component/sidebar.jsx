@@ -39,7 +39,7 @@ function hendleClick(e){
             </div>
             <hr/>
             <div>
-                <Text color="gray.400" >Pages</Text>
+                <Text color="gray.400" className="sidebar_heading_text" >Pages</Text>
                 {true && sidebar_pages.map(el=>(<Link to={el.rout} ><Flex bg={tab==el.text?"#4880FF":""} onClick={(e)=>settab(e.target.id)} id={el.text}    className="sidebar_groups"  ><el.icon color={tab==el.text?"white":"black"} /> <Text id={el.text} fontSize="14px" onClick={(e)=>settab(e.target.id)} color={tab==el.text?"white":"black"}  >{el.text}</Text></Flex></Link>))}
             </div>
         </div>
