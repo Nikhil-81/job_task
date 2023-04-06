@@ -28,8 +28,9 @@ function hendlePage(val){
 function hendleDelete(el){
 dispatch(Product_Delete_Request(el,page))
 }
-function hendleEdit(el){
-    console.log("Edite",el)
+function hendleModalOpen(el){
+    
+    
     }
 
   return (
@@ -51,7 +52,7 @@ function hendleEdit(el){
       <TableContainer colorScheme="whiteAlpha"  className="stocks_table" >
   <Table variant='simple'>
     <Thead>
-      <Tr>
+      <Tr className="stock_table_Tr" >
         <Th>Image</Th>
         <Th>Product Name</Th>
         <Th>Category</Th>
@@ -62,13 +63,13 @@ function hendleEdit(el){
       </Tr>
     </Thead>
     <Tbody>
-     {true && stock_store.data.map(el=>(<Table_thread image={el.image} name={el.title} category={el.category} price={el.price} piece={el.count} color={el.color} hendleDelete={()=>hendleDelete(el)} hendleEdit={()=>hendleEdit(el)} />))}
+     {true && stock_store.data.map(el=>(<Table_thread image={el.image} name={el.title} category={el.category} price={el.price} piece={el.count} color={el.color} hendleDelete={()=>hendleDelete(el)} hendleEdit={()=>hendleModalOpen(el)} />))}
     </Tbody>
   </Table>
 </TableContainer>
       </div>
       <div className="stock_section_3">
-        <Text fontSize="14px" color="#D5D5D5"  >Showing 1-09 of 78</Text>
+        <Text fontSize="14px" color="#D5D5D5"  >Showing 1-06 of 78</Text>
         {stock_store.stock_load?(<CircularProgress isIndeterminate color='green.300' />):(<div><Flex><span className="editIcon" onClick={()=>hendlePage(-1)}> <ChevronLeftIcon /></span> <span className="DeleitIcon" onClick={()=>hendlePage(1)} ><ChevronRightIcon /> </span></Flex></div>)}
       </div>
     </div>

@@ -64,3 +64,6 @@ background-color: #FAFBFD;
     margin-top: 38px;
 }
 
+.stock_table_Tr, .stock_table_thread_TD{
+    font-size: 14px;
+}
