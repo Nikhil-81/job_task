@@ -24,7 +24,7 @@ let flags={
 }
 export default function NavBar() {
 
-const [countryImg,setcountry_img]=useState(uk_flag)
+const [countryImg,setcountry_img]=useState()
 function hendleChange(data){
 setcountry_img(flags[data])
 

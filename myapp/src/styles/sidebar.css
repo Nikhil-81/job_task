@@ -1,5 +1,20 @@
 .sidebar{
-    background-color: aqua;
     min-width: 240px;
     height: 100vh;
+}
+
+.sidebar_main_cont{
+    margin-top: 24px;
+}
+
+.sidebar_groups{
+    justify-content: start;
+    padding-left: 40px;
+    height: 50PX;
+    align-items: center;
+    margin: 0 24px;
+    border-radius: 6px;
+}
+.sidebar_groups P{
+    margin-left: 16PX;
 }
