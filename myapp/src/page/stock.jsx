@@ -3,8 +3,18 @@ import Sidebar from "../component/sidebar";
 import { Heading, Input, InputGroup, InputLeftElement, Table, TableContainer, Text, Th, Thead, Tr,Td, Tbody, Image, Flex } from "@chakra-ui/react";
 import { SearchIcon,EditIcon,DeleteIcon } from "@chakra-ui/icons";
 import "../styles/stocks.css";
-let color=["red","yellow","green","pink" ]
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { Product_Get_Request } from "../redux/stock/stock.action";
+import Table_thread from "../component/table_content";
+
 export default function Stock() {
+    const dispatch=useDispatch()
+    const stock_store=useSelector((store)=>store.stock)
+useEffect(()=>{
+dispatch(Product_Get_Request())
+},[])
+console.log(stock_store)
   return (
     <div className="stoc_main">
       <div className="dash_section_one">
@@ -34,15 +44,7 @@ export default function Stock() {
       </Tr>
     </Thead>
     <Tbody>
-      <Tr>
-        <Td><Image className="stock_table_image"  boxSize={30} src={"https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg"}  /></Td>
-        <Td Style={"white-space: break-spaces;"} >Fjallraven Backpack </Td>
-        <Td>men's clothing</Td>
-        <Td>109.95</Td>
-        <Td>500</Td>
-        <Td><Flex wrap="wrap" >{color.map(el=>(<div className="color_circle" Style={`background:${el}`} ></div>))}</Flex></Td>
-        <Td><Flex  ><span className="editIcon"> <EditIcon color="gray.400" /></span> <span className="DeleitIcon" ><DeleteIcon color="red.500" /> </span></Flex></Td>
-      </Tr>
+     {true && stock_store.data.map(el=>(<Table_thread image={el.image} name={el.title} category={el.category} price={el.price} piece={el.count} color={el.color} />))}
     </Tbody>
   </Table>
 </TableContainer>
