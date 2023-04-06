@@ -13,3 +13,16 @@ export const Product_Get_Request=(page)=>(dispatch)=>{
 
     }
 }
+
+export const Product_Delete_Request=(data,page)=>(dispatch)=>{
+    dispatch({type:STOCK_GET_REQUEST})
+    try{
+        axios.delete(`https://fackstore.onrender.com/product/${data.id}`)
+        .then(res=>dispatch(Product_Get_Request(page)))
+        .catch(err=>dispatch({type:STOCK_GET_ERROR}))
+    }
+    catch(err){
+    dispatch({type:STOCK_GET_ERROR})
+
+    }
+}

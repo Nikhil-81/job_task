@@ -5,7 +5,7 @@ import { SearchIcon,EditIcon,DeleteIcon,ChevronLeftIcon,ChevronRightIcon } from 
 import "../styles/stocks.css";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Product_Get_Request } from "../redux/stock/stock.action";
+import { Product_Delete_Request, Product_Get_Request } from "../redux/stock/stock.action";
 import Table_thread from "../component/table_content";
 
 export default function Stock() {
@@ -24,6 +24,14 @@ function hendlePage(val){
         setpage(prev=>prev+val)
     }
 }
+
+function hendleDelete(el){
+dispatch(Product_Delete_Request(el,page))
+}
+function hendleEdit(el){
+    console.log("Edite",el)
+    }
+
   return (
     <div className="stoc_main">
        
@@ -54,7 +62,7 @@ function hendlePage(val){
       </Tr>
     </Thead>
     <Tbody>
-     {true && stock_store.data.map(el=>(<Table_thread image={el.image} name={el.title} category={el.category} price={el.price} piece={el.count} color={el.color} />))}
+     {true && stock_store.data.map(el=>(<Table_thread image={el.image} name={el.title} category={el.category} price={el.price} piece={el.count} color={el.color} hendleDelete={()=>hendleDelete(el)} hendleEdit={()=>hendleEdit(el)} />))}
     </Tbody>
   </Table>
 </TableContainer>
