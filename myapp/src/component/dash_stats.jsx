@@ -12,9 +12,9 @@ export default function States({lable1,lable2,lable3,lable4,status1,status2,stat
         <Flex justify="space-between"  >
             <div>
                 <Text>Total Users</Text>
-        <Text fontStyle="bold"  fontSize="25px" Style={"padding-top:10px"} >{num1}</Text>
+        <Text fontStyle="bold" className="stats_num" fontSize="25px" Style={"padding-top:10px"} >{num1}</Text>
             </div>
-            <div className="stats_icon" >
+            <div className="stats_icon" Style={"background:#E5E4FF"} >
             <Icon as={BsPeopleFill} boxSize="14" color="#8280FF" />
             </div>
         </Flex>
@@ -25,10 +25,10 @@ export default function States({lable1,lable2,lable3,lable4,status1,status2,stat
         <Flex justify="space-between"  >
             <div>
                 <Text>Total Orders</Text>
-        <Text fontStyle="bold"  fontSize="25px" Style={"padding-top:10px"} >{num2}</Text>
+        <Text fontStyle="bold" className="stats_num" fontSize="25px" Style={"padding-top:10px"} >{num2}</Text>
             </div>
-            <div className="stats_icon" >
-            <Icon as={FiBox} boxSize="14" color="#8280FF" />
+            <div className="stats_icon" Style={"background:#FFF3D6"} >
+            <Icon as={FiBox} boxSize="14" color="#FFDC8A" />
             </div>
         </Flex>
         <Text Style={"margin-top:39px;text-align:start"} ><span Style={`color:${status2=="profit"?"green":"red"}`}>{groth2}</span> <Icon as={status2=="profit"?GrLineChart:GrLineChart} color={status2=="profit"?"greeen":"red"} />{status2=="profit"?" Up ":" Down " }{lable2}</Text>
@@ -38,10 +38,10 @@ export default function States({lable1,lable2,lable3,lable4,status1,status2,stat
         <Flex justify="space-between"  >
             <div>
                 <Text>Total Sales</Text>
-        <Text fontStyle="bold"  fontSize="25px" Style={"padding-top:10px"} >{num3}</Text>
+        <Text fontStyle="bold" className="stats_num" fontSize="25px" Style={"padding-top:10px"} >{num3}</Text>
             </div>
-            <div className="stats_icon" >
-            <Icon as={RiLineChartFill} boxSize="14" color="#8280FF" />
+            <div className="stats_icon" Style={"background:#92E8BD"} >
+            <Icon as={RiLineChartFill} boxSize="14" color="#4AD991" />
             </div>
         </Flex>
         <Text Style={"margin-top:39px;text-align:start"} ><span Style={`color:${status3=="profit"?"green":"red"}`}>{groth3}</span> <Icon as={status3=="profit"?GrLineChart:GrLineChart} color={status3=="profit"?"greeen":"red"} />{status3=="profit"?" Up ":" Down " }{lable3}</Text>
@@ -51,10 +51,10 @@ export default function States({lable1,lable2,lable3,lable4,status1,status2,stat
         <Flex justify="space-between"  >
             <div>
                 <Text>Total Panding</Text>
-        <Text fontStyle="bold"  fontSize="25px" Style={"padding-top:10px"} >{num4}</Text>
+        <Text fontStyle="bold" className="stats_num" fontSize="25px" Style={"padding-top:10px"} >{num4}</Text>
             </div>
-            <div className="stats_icon" >
-            <Icon as={RxCounterClockwiseClock} boxSize="14" color="#8280FF" />
+            <div className="stats_icon" Style={"background:#FFDED1"}>
+            <Icon as={RxCounterClockwiseClock} boxSize="14" color="#FFA989" />
             </div>
         </Flex>
         <Text Style={"margin-top:39px;text-align:start"} ><span Style={`color:${status4=="profit"?"green":"red"}`}>{groth4}</span> <Icon as={status4=="profit"?GrLineChart:GrLineChart} color={status4=="profit"?"greeen":"red"} />{status4=="profit"?" Up ":" Down " }{lable4}</Text>
