@@ -12,7 +12,7 @@ import {
 } from "chart.js";
 import { Flex, Select, Text } from "@chakra-ui/react";
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 ChartJS.register(
   CategoryScale,
   LinearScale,
@@ -75,9 +75,19 @@ let month = [
 
 export default function Chart_line() {
     const [data_set,setdata]=useState()
-    const [MONTH,setmonth]=useState("January")
+    // const [MONTH,setmonth]=useState("January")
+    const Month=useRef("January")
+
+
+function hendleChartChange(month){
+    axios.get(`https://fackstore.onrender.com/sales?month=${month}`).then(res=>changePer(res.data)).catch(err=>console.log(err))
+
+}
+
     function hendleChange(month) {
-        setmonth(month)
+        Month.current=month
+        console.log(Month)
+        hendleChartChange(Month.current)
     }
 
     function changePer(chart_data) {
@@ -89,12 +99,12 @@ export default function Chart_line() {
       }
 
     useEffect(()=>{
-        axios.get(`https://fackstore.onrender.com/sales?month=${MONTH}`).then(res=>changePer(res.data)).catch(err=>console.log(err))
-    },[MONTH])
+        axios.get(`https://fackstore.onrender.com/sales?month=${Month.current}`).then(res=>changePer(res.data)).catch(err=>console.log(err))
+    },[])
   return (
     <div className="chart_cont">
       <Flex justifyContent="space-between">
-        <Text>Sales Details</Text>
+        <Text fontSize="24px" >Sales Details</Text>
         <Select
           placeholder="Month"
           w="20%"
