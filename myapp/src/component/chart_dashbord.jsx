@@ -13,6 +13,7 @@ import {
 import { Flex, Select, Text } from "@chakra-ui/react";
 import axios from "axios";
 import { useEffect, useRef, useState } from "react";
+import States from "./dash_stats";
 ChartJS.register(
   CategoryScale,
   LinearScale,
@@ -70,6 +71,7 @@ let month = [
 
 export default function Chart_line() {
   const [data_set, setdata] = useState();
+  const [states_data,Setstates_data]=useState()
   // const [MONTH,setmonth]=useState("January")
   const Month = useRef("January");
 
@@ -90,9 +92,11 @@ export default function Chart_line() {
     let num = chart_data[0].data;
     let main_data = [];
     num.map((el) => main_data.push((Number(el) / chart_data[0].max) * 100));
-    console.log(main_data);
-    setdata(main_data);
-  }
+    console.log(chart_data[0]);
+    
+    setdata({...chart_data[0],data:main_data});
+}
+console.log(data_set)
 
   useEffect(() => {
     axios
@@ -101,6 +105,10 @@ export default function Chart_line() {
       .catch((err) => console.log(err));
   }, []);
   return (
+    <div>
+    <States lable1={data_set?.lable1} lable2={data_set?.lable2} lable3={data_set?.lable3} lable4={data_set?.lable4} status1={data_set?.status1} status2={data_set?.status2} status3={data_set?.status3} status4={data_set?.status4} num1={data_set?.num1} num2={data_set?.num2} num3={data_set?.num3} num4={data_set?.num4} groth1={data_set?.groth1} groth2={data_set?.groth2} groth3={data_set?.groth3} groth4={data_set?.groth4}/>        
+    
+
     <div className="chart_cont" Style={"margin:28px 30px;"}>
       <Flex justifyContent="space-between">
         <Text fontSize="24px">Sales Details</Text>
@@ -121,7 +129,7 @@ export default function Chart_line() {
           labels,
           datasets: [
             {
-              data: data_set,
+              data: data_set?.data,
               borderColor: "#4880FF",
               backgroundColor: "white",
             },
@@ -129,6 +137,7 @@ export default function Chart_line() {
         }}
       />
       ;
+    </div>
     </div>
   );
 }

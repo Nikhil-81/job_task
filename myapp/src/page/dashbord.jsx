@@ -8,7 +8,6 @@ export default function Dashbord(){
     return (
         
       <div style={{background:"#F5F5F5"}} >
-        <States/>
     <Chart_line/>
     <Deal_details  />
       </div>
