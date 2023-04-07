@@ -35,7 +35,7 @@ useEffect(()=>{
     deal_Request(Month.current)
 },[])
     return (
-        <>
+        <div Style={"margin:28px 30px;"}>
         <Flex justifyContent="space-between">
         <Text fontSize="24px" >Sales Details</Text>
         <Select
@@ -68,6 +68,6 @@ useEffect(()=>{
   </Table>
 </TableContainer>
       </div>
-        </>
+        </div>
     )
 }

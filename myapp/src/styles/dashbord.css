@@ -9,8 +9,7 @@ display: flex;
     overflow-x: hidden;
 }
 .chart_cont{
-    width:900px;
-    height:auto;
+
      margin:auto;
      display:block;
      background-color: white;
@@ -19,3 +18,19 @@ display: flex;
      box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
 }
 
+.dash_stats{
+    width: 230px;
+    height: 161px;
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    border-radius: 8px;
+    padding: 0.3rem 1.1rem;
+
+}
+.stats_icon{
+
+    padding: 0.3rem;
+    border-radius: 18px;
+    background: aliceblue;
+
+}

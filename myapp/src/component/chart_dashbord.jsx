@@ -68,43 +68,42 @@ let month = [
   "December",
 ];
 
-
-
-
-
-
 export default function Chart_line() {
-    const [data_set,setdata]=useState()
-    // const [MONTH,setmonth]=useState("January")
-    const Month=useRef("January")
+  const [data_set, setdata] = useState();
+  // const [MONTH,setmonth]=useState("January")
+  const Month = useRef("January");
 
+  function hendleChartChange(month) {
+    axios
+      .get(`https://fackstore.onrender.com/sales?month=${month}`)
+      .then((res) => changePer(res.data))
+      .catch((err) => console.log(err));
+  }
 
-function hendleChartChange(month){
-    axios.get(`https://fackstore.onrender.com/sales?month=${month}`).then(res=>changePer(res.data)).catch(err=>console.log(err))
+  function hendleChange(month) {
+    Month.current = month;
+    console.log(Month);
+    hendleChartChange(Month.current);
+  }
 
-}
+  function changePer(chart_data) {
+    let num = chart_data[0].data;
+    let main_data = [];
+    num.map((el) => main_data.push((Number(el) / chart_data[0].max) * 100));
+    console.log(main_data);
+    setdata(main_data);
+  }
 
-    function hendleChange(month) {
-        Month.current=month
-        console.log(Month)
-        hendleChartChange(Month.current)
-    }
-
-    function changePer(chart_data) {
-        let num =chart_data[0].data
-        let main_data = [];
-        num.map((el) => main_data.push((Number(el) / chart_data[0].max) * 100));
-      console.log(main_data)
-        setdata(main_data)
-      }
-
-    useEffect(()=>{
-        axios.get(`https://fackstore.onrender.com/sales?month=${Month.current}`).then(res=>changePer(res.data)).catch(err=>console.log(err))
-    },[])
+  useEffect(() => {
+    axios
+      .get(`https://fackstore.onrender.com/sales?month=${Month.current}`)
+      .then((res) => changePer(res.data))
+      .catch((err) => console.log(err));
+  }, []);
   return (
-    <div className="chart_cont">
+    <div className="chart_cont" Style={"margin:28px 30px;"}>
       <Flex justifyContent="space-between">
-        <Text fontSize="24px" >Sales Details</Text>
+        <Text fontSize="24px">Sales Details</Text>
         <Select
           placeholder="Month"
           w="20%"
@@ -116,14 +115,20 @@ function hendleChartChange(month){
           ))}
         </Select>
       </Flex>
-      <Line options={options} data={{labels,
-  datasets: [
-    {
-      data: data_set,
-      borderColor: "#4880FF",
-      backgroundColor: "white",
-    },
-  ],}} />;
+      <Line
+        options={options}
+        data={{
+          labels,
+          datasets: [
+            {
+              data: data_set,
+              borderColor: "#4880FF",
+              backgroundColor: "white",
+            },
+          ],
+        }}
+      />
+      ;
     </div>
   );
 }
