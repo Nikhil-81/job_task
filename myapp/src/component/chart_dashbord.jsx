@@ -112,7 +112,11 @@ export default function Chart_line() {
   }
 
   useEffect(() => {
-    hendleGet_chart_request(Month.current);
+let val=JSON.parse(localStorage.getItem("chart_month"))
+if(val != undefined && val != null){
+Month.current=val
+}
+  hendleGet_chart_request(Month.current);
   }, []);
 
   return (
@@ -143,7 +147,7 @@ export default function Chart_line() {
             Sales Details
           </Text>
           <Select
-            placeholder="Month"
+            placeholder={Month.current}
             w="20%"
             className="Month_select"
             onChange={(e) => hendleChange(e.target.value)}

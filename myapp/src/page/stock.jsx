@@ -103,6 +103,9 @@ export default function Stock() {
 
   return (
     <div className="stoc_main">
+      <div className="stock_loder"  Style={`display:${stock_store.stock_load?"block":"none"}`} ><div className="loder_icon_stock"> <CircularProgress   isIndeterminate color="green.300" /></div></div>
+
+
       <div
         className="modal_content"
         Style={`display:${hide_modal ? "none" : "block"}`}
@@ -210,9 +213,7 @@ export default function Stock() {
         <Text fontSize="14px" Style={"opacity:60%"} fontWeight="600" >
           Showing 1-06 of 78
         </Text>
-        {stock_store.stock_load ? (
-          <CircularProgress isIndeterminate color="green.300" />
-        ) : (
+      
           <div>
             <Flex>
               <span className="editIcon" onClick={() => hendlePage(-1)}>
@@ -224,7 +225,7 @@ export default function Stock() {
               </span>
             </Flex>
           </div>
-        )}
+        
       </div>
     </div>
   );

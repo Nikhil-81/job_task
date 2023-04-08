@@ -17,6 +17,9 @@ import {CHART_GET_REQUEST,CHART_GET_SUCESS,CHART_GET_ERROR} from "./chart_action
         };
       }
       case CHART_GET_SUCESS: {
+      
+        
+
         return {
           ...state,
           chart_load: false,

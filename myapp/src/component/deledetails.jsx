@@ -40,7 +40,7 @@ useEffect(()=>{
        <Flex justifyContent="space-between">
         <Text fontSize="24px" fontWeight="700" >Deals Details</Text>
         <Select
-          placeholder="Month"
+          placeholder={Month.current}
           w="20%"
           className="Month_select"
           onChange={(e) => hendleChange(e.target.value)}
