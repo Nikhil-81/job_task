@@ -1,25 +1,15 @@
-export default function BasicUsage({hendleModalOpen,hendleModalClose}) {
-    const { isOpen, onOpen, onClose } = useDisclosure()
+import { Button, Text } from "@chakra-ui/react"
+import { useState } from "react"
+
+export default function BasicUsage({data,hendle_modal_close}) {
+const [hide_style,sethide_styles]=useState(true)
+
+
+
     return (
-      <>
-        <Button onClick={hendleModalOpen}>Open Modal</Button>
-  
-        <Modal isOpen={isOpen} onClose={onClose}>
-          <ModalOverlay />
-          <ModalContent>
-            <ModalHeader>Edit Product</ModalHeader>
-            <ModalCloseButton />
-            <ModalBody>
-             
-            </ModalBody>
-  
-            <ModalFooter>
-              <Button colorScheme='blue' mr={3} onClick={hendleModalClose}>
-                Close
-              </Button>
-            </ModalFooter>
-          </ModalContent>
-        </Modal>
-      </>
+      <div className="modal" >
+  <Text>{data?.title}</Text>
+  <Button onClick={hendle_modal_close} >close</Button>
+      </div>
     )
   }
