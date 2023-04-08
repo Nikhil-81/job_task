@@ -14,6 +14,7 @@ import { Flex, Select, Text } from "@chakra-ui/react";
 import axios from "axios";
 import { useEffect, useRef, useState } from "react";
 import States from "./dash_stats";
+import { useToast } from '@chakra-ui/react'
 ChartJS.register(
   CategoryScale,
   LinearScale,
@@ -23,6 +24,7 @@ ChartJS.register(
   Tooltip,
   Legend
 );
+
 
 export const options = {
   responsive: true,
@@ -71,7 +73,7 @@ let month = [
 
 export default function Chart_line() {
   const [data_set, setdata] = useState();
-  const [states_data,Setstates_data]=useState()
+  const toast = useToast()
   // const [MONTH,setmonth]=useState("January")
   const Month = useRef("January");
 
@@ -79,7 +81,14 @@ export default function Chart_line() {
     axios
       .get(`https://fackstore.onrender.com/sales?month=${month}`)
       .then((res) => changePer(res.data))
-      .catch((err) => console.log(err));
+      .catch((err) =>   toast({
+        title: 'Account created.',
+        description: "Failed to load data.",
+        status: 'error',
+        duration: 9000,
+        isClosable: true,
+        position: 'top',
+      })  )
   }
 
   function hendleChange(month) {
@@ -102,16 +111,25 @@ console.log(data_set)
     axios
       .get(`https://fackstore.onrender.com/sales?month=${Month.current}`)
       .then((res) => changePer(res.data))
-      .catch((err) => console.log(err));
+      .catch((err) =>   toast({
+        title: 'ERROR',
+        description: "Failed to load data",
+        status: 'error',
+        duration: 9000,
+        isClosable: true,
+        position: 'top',
+      }));
   }, []);
   return (
     <div>
+
+      <Text className="dash_bord_heading"  >Dashbord</Text>
     <States lable1={data_set?.lable1} lable2={data_set?.lable2} lable3={data_set?.lable3} lable4={data_set?.lable4} status1={data_set?.status1} status2={data_set?.status2} status3={data_set?.status3} status4={data_set?.status4} num1={data_set?.num1} num2={data_set?.num2} num3={data_set?.num3} num4={data_set?.num4} groth1={data_set?.groth1} groth2={data_set?.groth2} groth3={data_set?.groth3} groth4={data_set?.groth4}/>        
     
 
     <div className="chart_cont" Style={"margin:28px 30px;"}>
       <Flex justifyContent="space-between">
-        <Text fontSize="24px">Sales Details</Text>
+        <Text fontSize="24px" fontWeight="700" >Sales Details</Text>
         <Select
           placeholder="Month"
           w="20%"

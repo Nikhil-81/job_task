@@ -35,9 +35,10 @@ useEffect(()=>{
     deal_Request(Month.current)
 },[])
     return (
-        <div Style={"margin:28px 30px;"}>
-        <Flex justifyContent="space-between">
-        <Text fontSize="24px" >Sales Details</Text>
+        <div Style={"margin:28px 30px; background:white;border-radius:16px;padding:35px 0 37px 0 "}>
+       <div Style={"margin:32px"} >
+       <Flex justifyContent="space-between">
+        <Text fontSize="24px" fontWeight="700" >Deals Details</Text>
         <Select
           placeholder="Month"
           w="20%"
@@ -52,22 +53,23 @@ useEffect(()=>{
         <div className="stock_section_two">
       <TableContainer colorScheme="whiteAlpha"  className="stocks_table" >
   <Table variant='simple'>
-    <Thead>
+    <Thead bg="#F1F4F9" >
       <Tr className="stock_table_Tr" >
-        <Td>Product Name</Td>
-        <Th>Location</Th>
-        <Th>Date-Time</Th>
-        <Th>Piece</Th>
-        <Th>Amount</Th>
-        <Th>Status</Th>
+        <Td fontSize="14px" fontWeight="700" fontStyle="bold">Product Name</Td>
+        <Td fontSize="14px" fontWeight="700" fontStyle="bold"  >Location</Td>
+        <Td fontSize="14px" fontWeight="700" fontStyle="bold"  >Date-Time</Td>
+        <Td fontSize="14px" fontWeight="700" fontStyle="bold"  >Piece</Td>
+        <Td fontSize="14px" fontWeight="700" fontStyle="bold"  >Amount</Td>
+        <Td fontSize="14px" fontWeight="700" fontStyle="bold"  >Status</Td>
       </Tr>
     </Thead>
     <Tbody>
-     {true && deal_store.data.map(el=>(<Deal_details_Table_thread image={el.image} name={el.title} location={el.location} price={el.price} piece={el.count} status={el.status?"Delivered":"Panding"} />))}
+     {true && deal_store.data.map(el=>(<Deal_details_Table_thread  date_time={el.date_time} image={el.image} name={el.title} location={el.location} price={el.price} piece={el.count} status={el.status?"Delivered":"Panding"} />))}
     </Tbody>
   </Table>
 </TableContainer>
       </div>
+       </div>
         </div>
     )
 }

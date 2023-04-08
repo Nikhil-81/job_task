@@ -19,21 +19,53 @@ display: flex;
 }
 
 .dash_stats{
-    width: 230px;
+    width: 245px;
     height: 161px;
     background-color: white;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
-    border-radius: 8px;
-    padding: 0.3rem 0.5rem;
+    border-radius: 14px;
+    padding: 0.5rem 0.5rem;
 
 }
 .stats_icon{
 
     padding: 0.3rem;
-    border-radius: 18px;
+    border-radius: 23px;
 
 
 }
 .stats_num{
     text-align: start;
+    font-size: 28px;
+    font-weight: 700;
+}
+
+.green_status_lable{
+    
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 50px;
+}
+
+.red_status_lable{
+  
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 50px;
+}
+
+.dash_bord_heading{
+    font-size: 32px;
+    font-weight: 700;
+    text-align: start;
+    margin-left: 32px;
+    margin-top: 30px;
+    margin-bottom: 27px;
+
+}
+
+.stats_heading{
+    opacity: 70%;
+    font-weight: 600;
+    font-size: 16px;
 }
