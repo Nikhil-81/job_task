@@ -3,6 +3,7 @@ import axios from "axios"
 
 export const Deal_Get_Request=(month)=>(dispatch)=>{
     dispatch({type:DEAL_GET_REQUEST})
+    localStorage.setItem("deal_month",JSON.stringify(month))
     try{
         axios.get(`https://fackstore.onrender.com/deals?month=${month}`)
         .then(res=>dispatch({type:DEAL_GET_SUCESS,payload:res.data}))

@@ -32,7 +32,11 @@ function hendleChange(month){
 }
 
 useEffect(()=>{
-    deal_Request(Month.current)
+  let val=JSON.parse(localStorage.getItem("deal_month"))
+  if(val != null && val != undefined){
+    Month.current=val
+  }
+  deal_Request(Month.current)
 },[])
     return (
         <div Style={"margin:28px 30px; background:white;border-radius:16px;padding:35px 0 37px 0 "}>
