@@ -33,7 +33,7 @@ setcountry_img(flags[data])
   return (
    
     <div className="nav_main" >
-      <Flex>
+      <Flex alignItems="baseline" >
         <div>
           <HamburgerIcon  className="hamburgar" />
         </div>
@@ -50,7 +50,7 @@ setcountry_img(flags[data])
       <Flex className="contacts_nav" >
         <span>
             <div className="bell_icon" >
-          <BellIcon color="#3D42DF" boxSize={8} />
+          <BellIcon color="rgb(72, 128, 255)" boxSize={7} />
             </div>
           <div className="notification_num"><Text fontSize='sm'>6</Text></div>
         </span>

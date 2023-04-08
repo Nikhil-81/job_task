@@ -149,7 +149,7 @@ export default function Stock() {
       </div>
 
       <div className="dash_section_one">
-        <Text fontSize="32px">Product Stock</Text>
+        <Text fontSize="32px" fontWeight="700" >Product Stock</Text>
         <div>
           <InputGroup  >
             <InputLeftElement
@@ -207,8 +207,8 @@ export default function Stock() {
         </TableContainer>
       </div>
       <div className="stock_section_3">
-        <Text fontSize="14px" color="#D5D5D5">
-          `Showing 1-06 of 78`
+        <Text fontSize="14px" Style={"opacity:60%"} fontWeight="600" >
+          Showing 1-06 of 78
         </Text>
         {stock_store.stock_load ? (
           <CircularProgress isIndeterminate color="green.300" />

@@ -58,7 +58,7 @@ function hendleClick(e){
     return (
         <div className="sidebar">
             <div className="sidebar_main_cont">
-            <Text fontSize="20px" ><span style={{color:"#4880FF"}} >Bright</span> Web</Text>
+            <Text fontSize="20px" fontWeight="600" ><span style={{color:"#4880FF"}} >Bright</span> Web</Text>
             </div>
             <div>
                 {true && sidebar_handles.map(el=>(<Link to={el.rout} ><Flex bg={tab==el.text?"#4880FF":""} onClick={(e)=>settab(e.target.id)} id={el.text}    className="sidebar_groups"  ><Icon as={el.icon} color={tab==el.text?"white":"black"} /> <Text id={el.text} fontSize="14px" onClick={(e)=>settab(e.target.id)} color={tab==el.text?"white":"black"}  >{el.text}</Text></Flex></Link>))}

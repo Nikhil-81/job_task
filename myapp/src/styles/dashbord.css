@@ -19,12 +19,12 @@ display: flex;
 }
 
 .dash_stats{
-    width: 245px;
+    width: 252px;
     height: 161px;
     background-color: white;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
     border-radius: 14px;
-    padding: 0.5rem 0.5rem;
+    padding: 1rem 0.8rem;
 
 }
 .stats_icon{
