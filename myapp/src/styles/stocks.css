@@ -91,6 +91,26 @@ background-color: #FAFBFD;
     border-radius: 8px;
     background-color: white;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
-width: 40%;
+width: 50%;
 margin: auto;
+background-color: rgb(148, 188, 235);
+}
+
+.modal input{
+margin-bottom: 0.5rem;
+}
+
+.modal div:first-child img{
+    width: 50%;
+    border-radius: 8px;
+
+}
+.modal div:first-child p{
+    text-align: start;
+}
+
+.modal div:nth-child(2) button{
+    padding:0.5rem 1rem;
+    margin: 1rem;
+
 }

@@ -1,6 +1,6 @@
 import NavBar from "../component/navbr";
 import Sidebar from "../component/sidebar";
-import { Heading, Input, InputGroup, InputLeftElement, Table, TableContainer, Text, Th, Thead, Tr,Td, Tbody, Image, Flex, CircularProgress, useDisclosure, Button } from "@chakra-ui/react";
+import { Heading, Input, InputGroup, InputLeftElement, Table,useToast , TableContainer, Text, Th, Thead, Tr,Td, Tbody, Image, Flex, CircularProgress, useDisclosure, Button,Box } from "@chakra-ui/react";
 import { SearchIcon,EditIcon,DeleteIcon,ChevronLeftIcon,ChevronRightIcon } from "@chakra-ui/icons";
 import "../styles/stocks.css";
 import { useEffect, useRef, useState } from "react";
@@ -8,15 +8,22 @@ import { useDispatch, useSelector } from "react-redux";
 import { Product_Delete_Request, Product_Get_Request } from "../redux/stock/stock.action";
 import Table_thread from "../component/table_content";
 import BasicUsage from "../component/edit_madal";
+import axios from "axios";
+
+
+
+function hendle_put(el){
+return axios.put(`https://fackstore.onrender.com/product/${el.id}`,el)
+}
 
 
 export default function Stock() {
   const [hide_modal,sethide]=useState(true)
-  const edit_values=useRef(null)
+  let [edit_values,seteditValue]=useState({})
     const [page,setpage]=useState(1)
     const dispatch=useDispatch()
     const stock_store=useSelector((store)=>store.stock)
-
+    const toast = useToast()
 
 useEffect(()=>{
 dispatch(Product_Get_Request(page))
@@ -37,8 +44,39 @@ dispatch(Product_Delete_Request(el,page))
 
 function hendleEdit(el){
   sethide(false)
-  edit_values.current=el
+  seteditValue(el)
   
+}
+function HendleSubmit(){
+  sethide(true)
+  if(edit_values.title && edit_values.category && edit_values.count && edit_values.price){
+
+    hendle_put(edit_values).then(res=>dispatch(Product_Get_Request(page))).catch(err=>console.log(err))
+  }
+  else{
+    toast({
+      position: 'top',
+      render: () => (
+        <Box color='white' p={3} bg='blue.500'>
+          Values incomplet
+        </Box>
+      ),
+    })
+  }
+}
+console.log(edit_values)
+
+
+function hendleChange(e){
+  const {value,name}=e.target
+  if(name!="color"){
+
+    seteditValue({...edit_values,[name]:value})
+  }
+  else{
+    seteditValue({...edit_values,[name]:value})
+
+  }
 }
 
   return (
@@ -46,7 +84,36 @@ function hendleEdit(el){
 
 
       <div className="modal_content"  Style={`display:${hide_modal?"none":"block"}`} >
-        <BasicUsage data={ edit_values.current} hendle_modal_close={()=>sethide(true)} />
+
+       
+
+      <Flex className="modal" >
+      <div>
+<Image src={edit_values.image}  />
+<Text>{edit_values.title}</Text>
+<Text>{edit_values.price}</Text>          
+<Text>{edit_values.count}</Text>          
+<Text>{edit_values.category}</Text>          
+<Text>{edit_values.color}</Text>          
+        </div>
+      <div>
+      <Input value={edit_values.image}    /> 
+    
+      <Input placeholder={edit_values?.title} /> 
+    
+      <Input placeholder={edit_values?.category} /> 
+    
+      <Input placeholder={edit_values?.price} name="price"   onChange={(e)=>hendleChange(e)}   /> 
+    
+      <Input placeholder={edit_values?.count} name="count"  onChange={(e)=>hendleChange(e)} /> 
+    
+      <Input placeholder={edit_values?.color} name="color"  onChange={(e)=>hendleChange(e)} /> 
+    
+      <Button onClick={()=>sethide(true)} >close</Button>
+      <Button onClick={HendleSubmit} >Edit</Button>
+      </div>
+          </Flex>
+        {/* <BasicUsage data={ edit_values} hendle_modal_close={()=>sethide(true)} /> */}
       </div>
 
 
@@ -77,7 +144,7 @@ function hendleEdit(el){
       </Tr>
     </Thead>
     <Tbody>
-     {true && stock_store.data.map(el=>(<Table_thread image={el.image} name={el.title} category={el.category} price={el.price} piece={el.count} color={el.color} hendleDelete={()=>hendleDelete(el)} hendleEdit={()=>hendleEdit(el)} />))}
+     {true && stock_store.data.map(el=>(<Table_thread image={el.image} name={el.title} category={el.category} price={el.price} piece={el.count} color={el.color?el.color.split(","):[]} hendleDelete={()=>hendleDelete(el)} hendleEdit={()=>hendleEdit(el)} />))}
     </Tbody>
   </Table>
 </TableContainer>
