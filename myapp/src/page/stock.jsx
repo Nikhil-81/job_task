@@ -29,21 +29,18 @@ import "../styles/stocks.css";
 import { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
+  Edit_product_Get_Request,
   Product_Delete_Request,
   Product_Get_Request,
   Search_product_Get_Request,
 } from "../redux/stock/stock.action";
 import Table_thread from "../component/table_content";
 
-import axios from "axios";
 
-function hendle_put(el) {
-  return axios.put(`https://fackstore.onrender.com/product/${el.id}`, el);
-}
+
 
 export default function Stock() {
   const [hide_modal, sethide] = useState(true);
-  const [s_data,sets_data]=useState("")
   let [edit_values, seteditValue] = useState({});
   const [page, setpage] = useState(1);
   const dispatch = useDispatch();
@@ -51,7 +48,21 @@ export default function Stock() {
   const toast = useToast();
 let id;
   useEffect(() => {
-    dispatch(Product_Get_Request(page));
+    dispatch(Product_Get_Request(page)).then(res=>{res.type=="STOCK_GET_ERROR"?(toast({
+      title: "ERROR",
+      description: "Failed to load data",
+      status: "error",
+      duration: 3000,
+      isClosable: true,
+      position: "top",
+    })):console.log(res)}).catch(err=>toast({
+      title: "ERROR",
+      description: "Failed to load data",
+      status: "error",
+      duration: 3000,
+      isClosable: true,
+      position: "top",
+    }))
   }, [page]);
   console.log(stock_store);
   function hendlePage(val) {
@@ -63,7 +74,21 @@ let id;
   }
 
   function hendleDelete(el) {
-    dispatch(Product_Delete_Request(el, page));
+    dispatch(Product_Delete_Request(el, page)).then(res=>{res.type=="STOCK_GET_ERROR"?(toast({
+      title: "ERROR",
+      description: "Failed to load data",
+      status: "error",
+      duration: 3000,
+      isClosable: true,
+      position: "top",
+    })):console.log(res)}).catch(err=>toast({
+      title: "ERROR",
+      description: "Failed to load data",
+      status: "error",
+      duration: 3000,
+      isClosable: true,
+      position: "top",
+    }))
   }
 
   function hendleEdit(el) {
@@ -72,27 +97,25 @@ let id;
   }
   function HendleSubmit() {
     sethide(true);
-    if (
-      edit_values.title &&
-      edit_values.category &&
-      edit_values.count &&
-      edit_values.price
-    ) {
-      hendle_put(edit_values)
-        .then((res) => dispatch(Product_Get_Request(page)))
-        .catch((err) => console.log(err));
-    } else {
-      toast({
+    console.log("componrnt---",edit_values,page)
+      dispatch(Edit_product_Get_Request(edit_values,page)).then(res=>{res.type=="STOCK_GET_ERROR"?(toast({
+        title: "ERROR",
+        description: "Failed to load data",
+        status: "error",
+        duration: 3000,
+        isClosable: true,
         position: "top",
-        render: () => (
-          <Box color="white" p={3} bg="blue.500">
-            Values incomplet
-          </Box>
-        ),
-      });
-    }
+      })):console.log(res)}).catch(err=>toast({
+        title: "ERROR",
+        description: "Failed to load data",
+        status: "error",
+        duration: 3000,
+        isClosable: true,
+        position: "top",
+      }))
+  
   }
-  console.log(edit_values);
+  
 
   function hendleChange(e) {
     const { value, name } = e.target;
@@ -105,7 +128,21 @@ let id;
 
 function fetchSearch(q){
   console.log(q)
-  dispatch(Search_product_Get_Request(q))
+  dispatch(Search_product_Get_Request(q)).then(res=>{res.type=="STOCK_GET_ERROR"?(toast({
+    title: "ERROR",
+    description: "Failed to load data",
+    status: "error",
+    duration: 3000,
+    isClosable: true,
+    position: "top",
+  })):console.log(res)}).catch(err=>toast({
+    title: "ERROR",
+    description: "Failed to load data",
+    status: "error",
+    duration: 3000,
+    isClosable: true,
+    position: "top",
+  }))
 }
 
   function debounce(func,delay,e){
