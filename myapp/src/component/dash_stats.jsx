@@ -40,7 +40,7 @@ export default function States({lable1,lable2,lable3,lable4,status1,status2,stat
         <Flex justify="space-between"  >
             <div>
                 <Text className="stats_heading" >Total Sales</Text>
-        <Text fontStyle="bold" className="stats_num" fontSize="25px" Style={"padding-top:10px"} >{num3}</Text>
+        <Text fontStyle="bold" className="stats_num" fontSize="25px" Style={"padding-top:10px"} >${num3}</Text>
             </div>
             <div className="stats_icon" Style={"background:#92E8BD"} >
             <Icon as={RiLineChartFill} boxSize="14" color="#4AD991" />

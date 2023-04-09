@@ -24,7 +24,7 @@ let flags={
 }
 export default function NavBar() {
 
-const [countryImg,setcountry_img]=useState()
+const [countryImg,setcountry_img]=useState(uk_flag)
 function hendleChange(data){
 setcountry_img(flags[data])
 
@@ -60,12 +60,12 @@ setcountry_img(flags[data])
                 <Image src={countryImg} boxSize="30px" />
                 ):<></>}
           </span>
-          <Select variant="unstyled" placeholder="Language" className="con_select" onChange={(e)=>hendleChange(e.target.value)}  >
-            <option value="us">English</option>
-            <option value="in">Hindi</option>
+          <Select variant="unstyled" className="con_select" onChange={(e)=>hendleChange(e.target.value)}  >
             <option  value="uk">
               English
             </option>
+            <option value="us">English</option>
+            <option value="in">Hindi</option>
           </Select>
         </Flex>
         <div>
