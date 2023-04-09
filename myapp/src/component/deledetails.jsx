@@ -50,7 +50,7 @@ useEffect(()=>{
           onChange={(e) => hendleChange(e.target.value)}
         >
           {month.map((el) => (
-            <option value={el}>{el}</option>
+            <option value={el} key={el} >{el}</option>
           ))}
         </Select>
       </Flex>
@@ -68,7 +68,7 @@ useEffect(()=>{
       </Tr>
     </Thead>
     <Tbody>
-     {true && deal_store.data.map(el=>(<Deal_details_Table_thread  date_time={el.date_time} image={el.image} name={el.title} location={el.location} price={el.price} piece={el.count} status={el.status?"Delivered":"Panding"} />))}
+     {true && deal_store.data.map(el=>(<Deal_details_Table_thread key={el.id}  date_time={el.date_time} image={el.image} name={el.title} location={el.location} price={el.price} piece={el.count} status={el.status?"Delivered":"Panding"} />))}
     </Tbody>
   </Table>
 </TableContainer>

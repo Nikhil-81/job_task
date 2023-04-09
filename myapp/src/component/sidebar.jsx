@@ -57,16 +57,16 @@ export default  memo( function Sidebar(){
             <Text fontSize="20px" fontWeight="600" ><span style={{color:"#4880FF"}} >Bright</span> Web</Text>
             </div>
             <div>
-                {true && sidebar_handles.map(el=>(<Link to={el.rout} ><Flex bg={tab==el.text?"#4880FF":""} onClick={(e)=>settab(e.target.id)} id={el.text}    className="sidebar_groups"  ><Icon as={el.icon} color={tab==el.text?"white":"black"} /> <Text id={el.text} fontSize="14px" onClick={(e)=>settab(e.target.id)} color={tab==el.text?"white":"black"}  >{el.text}</Text></Flex></Link>))}
+                {true && sidebar_handles.map(el=>(<Link to={el.rout} key={el.text} ><Flex bg={tab==el.text?"#4880FF":""} onClick={(e)=>settab(e.target.id)} id={el.text}    className="sidebar_groups"  ><Icon as={el.icon} color={tab==el.text?"white":"black"} /> <Text id={el.text} fontSize="14px" onClick={(e)=>settab(e.target.id)} color={tab==el.text?"white":"black"}  >{el.text}</Text></Flex></Link>))}
             </div>
             <hr/>
             <div>
                 <Text color="gray.400" className="sidebar_heading_text" >Pages</Text>
-                {true && sidebar_pages.map(el=>(<Link to={el.rout} ><Flex bg={tab==el.text?"#4880FF":""} onClick={(e)=>settab(e.target.id)} id={el.text}    className="sidebar_groups"  ><Icon as={el.icon} color={tab==el.text?"white":"black"} /> <Text id={el.text} fontSize="14px" onClick={(e)=>settab(e.target.id)} color={tab==el.text?"white":"black"}  >{el.text}</Text></Flex></Link>))}
+                {true && sidebar_pages.map(el=>(<Link to={el.rout} key={el.text}><Flex bg={tab==el.text?"#4880FF":""} onClick={(e)=>settab(e.target.id)} id={el.text}    className="sidebar_groups"  ><Icon as={el.icon} color={tab==el.text?"white":"black"} /> <Text id={el.text} fontSize="14px" onClick={(e)=>settab(e.target.id)} color={tab==el.text?"white":"black"}  >{el.text}</Text></Flex></Link>))}
             </div>
             <hr/>
             <div>
-                {true && setting_pages.map(el=>(<Link to={el.rout} ><Flex bg={tab==el.text?"#4880FF":""} onClick={(e)=>settab(e.target.id)} id={el.text}    className="sidebar_groups"  ><Icon as={el.icon} color={tab==el.text?"white":"black"} /> <Text id={el.text} fontSize="14px" onClick={(e)=>settab(e.target.id)} color={tab==el.text?"white":"black"}  >{el.text}</Text></Flex></Link>))}
+                {true && setting_pages.map(el=>(<Link to={el.rout} key={el.text} ><Flex bg={tab==el.text?"#4880FF":""} onClick={(e)=>settab(e.target.id)} id={el.text}    className="sidebar_groups"  ><Icon as={el.icon} color={tab==el.text?"white":"black"} /> <Text id={el.text} fontSize="14px" onClick={(e)=>settab(e.target.id)} color={tab==el.text?"white":"black"}  >{el.text}</Text></Flex></Link>))}
             </div>
         </div>
     )

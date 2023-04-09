@@ -286,7 +286,8 @@ export default function Stock() {
             <Tbody>
               {true &&
                 stock_store.data.map((el) => (
-                  <Table_thread
+                  <Table_thread 
+                  key={el.title}
                     image={el.image}
                     name={el.title}
                     category={el.category}
