@@ -14,6 +14,23 @@ export const Product_Get_Request=(page)=>(dispatch)=>{
     }
 }
 
+
+
+
+export const Search_product_Get_Request=(q,page)=>(dispatch)=>{
+    dispatch({type:STOCK_GET_REQUEST})
+    try{
+        axios.get(`https://fackstore.onrender.com/product?title_like=${q}`)
+        .then(res=>dispatch({type:STOCK_GET_SUCESS,payload:res.data}))
+        .catch(err=>dispatch({type:STOCK_GET_ERROR}))
+    }
+    catch(err){
+    dispatch({type:STOCK_GET_ERROR})
+
+    }
+}
+
+
 export const Product_Delete_Request=(data,page)=>(dispatch)=>{
     dispatch({type:STOCK_GET_REQUEST})
     try{

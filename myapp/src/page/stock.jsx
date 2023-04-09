@@ -31,6 +31,7 @@ import { useDispatch, useSelector } from "react-redux";
 import {
   Product_Delete_Request,
   Product_Get_Request,
+  Search_product_Get_Request,
 } from "../redux/stock/stock.action";
 import Table_thread from "../component/table_content";
 
@@ -48,7 +49,7 @@ export default function Stock() {
   const dispatch = useDispatch();
   const stock_store = useSelector((store) => store.stock);
   const toast = useToast();
-
+let id;
   useEffect(() => {
     dispatch(Product_Get_Request(page));
   }, [page]);
@@ -102,7 +103,19 @@ export default function Stock() {
     }
   }
 
+function fetchSearch(q){
+  console.log(q)
+  dispatch(Search_product_Get_Request(q))
+}
 
+  function debounce(func,delay,e){
+    if(id){
+        clearTimeout(id)
+    }
+    id=setTimeout(function(){
+        fetchSearch(e.target.value)
+    },delay)
+}
 
   return (
     <div className="stoc_main">
@@ -162,7 +175,7 @@ export default function Stock() {
               pointerEvents="none"
               children={<SearchIcon color="gray.300" />}
             />
-            <Input type="text" placeholder="Search" Style={"border-radius:50px"}  />
+            <Input type="text" placeholder="Search" Style={"border-radius:50px"} onChange={(e)=>debounce(fetchSearch,1500,e)}  />
           </InputGroup>
         </div>
       </div>
