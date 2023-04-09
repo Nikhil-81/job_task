@@ -1,4 +1,3 @@
-
 import {
   Heading,
   Input,
@@ -16,7 +15,6 @@ import {
   Image,
   Flex,
   CircularProgress,
-
   Button,
   Box,
 } from "@chakra-ui/react";
@@ -36,9 +34,6 @@ import {
 } from "../redux/stock/stock.action";
 import Table_thread from "../component/table_content";
 
-
-
-
 export default function Stock() {
   const [hide_modal, sethide] = useState(true);
   let [edit_values, seteditValue] = useState({});
@@ -46,23 +41,31 @@ export default function Stock() {
   const dispatch = useDispatch();
   const stock_store = useSelector((store) => store.stock);
   const toast = useToast();
-let id;
+  let id;
   useEffect(() => {
-    dispatch(Product_Get_Request(page)).then(res=>{res.type=="STOCK_GET_ERROR"?(toast({
-      title: "ERROR",
-      description: "Failed to load data",
-      status: "error",
-      duration: 3000,
-      isClosable: true,
-      position: "top",
-    })):console.log(res)}).catch(err=>toast({
-      title: "ERROR",
-      description: "Failed to load data",
-      status: "error",
-      duration: 3000,
-      isClosable: true,
-      position: "top",
-    }))
+    dispatch(Product_Get_Request(page))
+      .then((res) => {
+        res.type == "STOCK_GET_ERROR"
+          ? toast({
+              title: "ERROR",
+              description: "Failed to load data",
+              status: "error",
+              duration: 3000,
+              isClosable: true,
+              position: "top",
+            })
+          : console.log(res);
+      })
+      .catch((err) =>
+        toast({
+          title: "ERROR",
+          description: "Failed to load data",
+          status: "error",
+          duration: 3000,
+          isClosable: true,
+          position: "top",
+        })
+      );
   }, [page]);
   console.log(stock_store);
   function hendlePage(val) {
@@ -74,21 +77,29 @@ let id;
   }
 
   function hendleDelete(el) {
-    dispatch(Product_Delete_Request(el, page)).then(res=>{res.type=="STOCK_GET_ERROR"?(toast({
-      title: "ERROR",
-      description: "Failed to load data",
-      status: "error",
-      duration: 3000,
-      isClosable: true,
-      position: "top",
-    })):console.log(res)}).catch(err=>toast({
-      title: "ERROR",
-      description: "Failed to load data",
-      status: "error",
-      duration: 3000,
-      isClosable: true,
-      position: "top",
-    }))
+    dispatch(Product_Delete_Request(el, page))
+      .then((res) => {
+        res.type == "STOCK_GET_ERROR"
+          ? toast({
+              title: "ERROR",
+              description: "Failed to load data",
+              status: "error",
+              duration: 3000,
+              isClosable: true,
+              position: "top",
+            })
+          : console.log(res);
+      })
+      .catch((err) =>
+        toast({
+          title: "ERROR",
+          description: "Failed to load data",
+          status: "error",
+          duration: 3000,
+          isClosable: true,
+          position: "top",
+        })
+      );
   }
 
   function hendleEdit(el) {
@@ -97,25 +108,31 @@ let id;
   }
   function HendleSubmit() {
     sethide(true);
-    console.log("componrnt---",edit_values,page)
-      dispatch(Edit_product_Get_Request(edit_values,page)).then(res=>{res.type=="STOCK_GET_ERROR"?(toast({
-        title: "ERROR",
-        description: "Failed to load data",
-        status: "error",
-        duration: 3000,
-        isClosable: true,
-        position: "top",
-      })):console.log(res)}).catch(err=>toast({
-        title: "ERROR",
-        description: "Failed to load data",
-        status: "error",
-        duration: 3000,
-        isClosable: true,
-        position: "top",
-      }))
-  
+    console.log("componrnt---", edit_values, page);
+    dispatch(Edit_product_Get_Request(edit_values, page))
+      .then((res) => {
+        res.type == "STOCK_GET_ERROR"
+          ? toast({
+              title: "ERROR",
+              description: "Failed to load data",
+              status: "error",
+              duration: 3000,
+              isClosable: true,
+              position: "top",
+            })
+          : console.log(res);
+      })
+      .catch((err) =>
+        toast({
+          title: "ERROR",
+          description: "Failed to load data",
+          status: "error",
+          duration: 3000,
+          isClosable: true,
+          position: "top",
+        })
+      );
   }
-  
 
   function hendleChange(e) {
     const { value, name } = e.target;
@@ -126,38 +143,53 @@ let id;
     }
   }
 
-function fetchSearch(q){
-  console.log(q)
-  dispatch(Search_product_Get_Request(q)).then(res=>{res.type=="STOCK_GET_ERROR"?(toast({
-    title: "ERROR",
-    description: "Failed to load data",
-    status: "error",
-    duration: 3000,
-    isClosable: true,
-    position: "top",
-  })):console.log(res)}).catch(err=>toast({
-    title: "ERROR",
-    description: "Failed to load data",
-    status: "error",
-    duration: 3000,
-    isClosable: true,
-    position: "top",
-  }))
-}
+  function fetchSearch(q) {
+    console.log(q);
+    dispatch(Search_product_Get_Request(q))
+      .then((res) => {
+        res.type == "STOCK_GET_ERROR"
+          ? toast({
+              title: "ERROR",
+              description: "Failed to load data",
+              status: "error",
+              duration: 3000,
+              isClosable: true,
+              position: "top",
+            })
+          : console.log(res);
+      })
+      .catch((err) =>
+        toast({
+          title: "ERROR",
+          description: "Failed to load data",
+          status: "error",
+          duration: 3000,
+          isClosable: true,
+          position: "top",
+        })
+      );
+  }
 
-  function debounce(func,delay,e){
-    if(id){
-        clearTimeout(id)
+  function debounce(func, delay, e) {
+    if (id) {
+      clearTimeout(id);
     }
-    id=setTimeout(function(){
-        fetchSearch(e.target.value)
-    },delay)
-}
+    id = setTimeout(function () {
+      fetchSearch(e.target.value);
+    }, delay);
+  }
 
   return (
     <div className="stoc_main">
-      <div className="stock_loder"  Style={`display:${stock_store.stock_load?"block":"none"}`} ><div className="loder_icon_stock"> <CircularProgress   isIndeterminate color="green.300" /></div></div>
-
+      <div
+        className="stock_loder"
+        Style={`display:${stock_store.stock_load ? "block" : "none"}`}
+      >
+        <div className="loder_icon_stock">
+          {" "}
+          <CircularProgress isIndeterminate color="green.300" />
+        </div>
+      </div>
 
       <div
         className="modal_content"
@@ -205,14 +237,21 @@ function fetchSearch(q){
       </div>
 
       <div className="dash_section_one">
-        <Text fontSize="32px" fontWeight="700" >Product Stock</Text>
+        <Text fontSize="32px" fontWeight="700">
+          Product Stock
+        </Text>
         <div>
-          <InputGroup  >
+          <InputGroup>
             <InputLeftElement
               pointerEvents="none"
               children={<SearchIcon color="gray.300" />}
             />
-            <Input type="text" placeholder="Search" Style={"border-radius:50px"} onChange={(e)=>debounce(fetchSearch,1500,e)}  />
+            <Input
+              type="text"
+              placeholder="Search"
+              Style={"border-radius:50px"}
+              onChange={(e) => debounce(fetchSearch, 1500, e)}
+            />
           </InputGroup>
         </div>
       </div>
@@ -263,22 +302,21 @@ function fetchSearch(q){
         </TableContainer>
       </div>
       <div className="stock_section_3">
-        <Text fontSize="14px" Style={"opacity:60%"} fontWeight="600" >
+        <Text fontSize="14px" Style={"opacity:60%"} fontWeight="600">
           Showing 1-06 of 78
         </Text>
-      
-          <div>
-            <Flex>
-              <span className="editIcon" onClick={() => hendlePage(-1)}>
-                {" "}
-                <ChevronLeftIcon />
-              </span>{" "}
-              <span className="DeleitIcon" onClick={() => hendlePage(1)}>
-                <ChevronRightIcon />{" "}
-              </span>
-            </Flex>
-          </div>
-        
+
+        <div>
+          <Flex>
+            <span className="editIcon" onClick={() => hendlePage(-1)}>
+              {" "}
+              <ChevronLeftIcon />
+            </span>{" "}
+            <span className="DeleitIcon" onClick={() => hendlePage(1)}>
+              <ChevronRightIcon />{" "}
+            </span>
+          </Flex>
+        </div>
       </div>
     </div>
   );

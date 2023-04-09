@@ -121,7 +121,7 @@ Month.current=val
 
   return (
     <div>
-      <Text className="dash_bord_heading">Dashbord</Text>
+      <Text className="dash_bord_heading">Dashboard</Text>
       <States
         lable1={data_set?.lable1}
         lable2={data_set?.lable2}

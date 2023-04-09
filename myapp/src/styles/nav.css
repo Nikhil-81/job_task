@@ -4,6 +4,7 @@
     background-color: white;
     padding: 1rem;
     height: 70px;
+    align-items: center;
     /* border: 1px solid black; */
 }
 .Nav_inputbar{
@@ -16,6 +17,7 @@
 }
 .contacts_nav{
     justify-content: space-around;
+    align-items: center;
 }
 
 .con_select{

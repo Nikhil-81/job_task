@@ -9,7 +9,7 @@ export default function Deal_details_Table_thread({image,name,location,date_time
         <Td fontSize="14px" fontWeight="600" className="stock_table_thread_TD" >{date_time}</Td>
         <Td fontSize="14px" fontWeight="600" className="stock_table_thread_TD" >{piece}</Td>
         <Td fontSize="14px" fontWeight="600" className="stock_table_thread_TD" > ${price} </Td>
-        <Td fontSize="14px" fontWeight="600"><span className={status?"green_status_lable":"red_status_lable"}   Style={`background:${status ? "green" : "red"}`}  >{status}</span> </Td>
+        <Td fontSize="14px" fontWeight="600"><span className={status?"green_status_lable":"red_status_lable"}   Style={`background:${status ? "#00B69B" : "red"}`}  >{status}</span> </Td>
       </Tr>
     )
 }

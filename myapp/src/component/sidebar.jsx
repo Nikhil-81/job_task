@@ -24,19 +24,19 @@ import {AiOutlinePoweroff} from "react-icons/ai"
 
 
 let sidebar_handles=[
-    {icon:TimeIcon,text:"Dashbord",rout:"/"},
+    {icon:TimeIcon,text:"Dashboard",rout:"/"},
     {icon:RiDropboxLine,text:"Products",rout:""},
     {icon:AiOutlineHeart,text:"Favorites",rout:""},
     {icon:BiMessage,text:"Inbox",rout:""},
-    {icon:BsListCheck,text:"Orderlist",rout:""},
+    {icon:BsListCheck,text:"Order List",rout:""},
     {icon:GrStackOverflow,text:"Product Stock",rout:"stock"},
 ]
 let sidebar_pages=[
     {icon:AiOutlineGift,text:"Pricing"},
     {icon:SlCalculator,text:"Calender"},
-    {icon:TbCheckupList,text:"Contact"},
     {icon:RiGroupLine,text:"To-Do"},
-    {icon:FaRegMoneyBillAlt,text:"In voice"},
+    {icon:TbCheckupList,text:"Contact"},
+    {icon:FaRegMoneyBillAlt,text:"Invoice"},
     {icon:BsBarChartFill,text:"UI Elements"},
     {icon:BsFillPersonFill,text:"Team"},
     {icon:AiOutlineTable,text:"Table"},
@@ -44,7 +44,7 @@ let sidebar_pages=[
 ]
 let setting_pages=[
     {icon:AiOutlineSetting,text:"Setting"},
-    {icon:AiOutlinePoweroff,text:"LogOut"},
+    {icon:AiOutlinePoweroff,text:"Logout"},
 
 
 ]

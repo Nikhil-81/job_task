@@ -54,7 +54,7 @@ setcountry_img(flags[data])
             </div>
           <div className="notification_num"><Text fontSize='sm'>6</Text></div>
         </span>
-        <Flex  >
+        <Flex align="center" >
           <span>
             {countryImg?(
                 <Image src={countryImg} boxSize="30px" />
