@@ -94,7 +94,7 @@ export default function Chart_line() {
 
     setdata({ ...chart_data[0], data: main_data });
   }
-  console.log(data_set);
+
 
   function hendleGet_chart_request(m) {
     dispatch(Chart_Get_Request(m))
@@ -163,6 +163,7 @@ Month.current=val
             labels,
             datasets: [
               {
+                label: Month.current,
                 data: data_set?.data,
                 borderColor: "#4880FF",
                 backgroundColor: "white",

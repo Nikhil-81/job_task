@@ -42,6 +42,7 @@ function hendle_put(el) {
 
 export default function Stock() {
   const [hide_modal, sethide] = useState(true);
+  const [s_data,sets_data]=useState("")
   let [edit_values, seteditValue] = useState({});
   const [page, setpage] = useState(1);
   const dispatch = useDispatch();
@@ -101,6 +102,8 @@ export default function Stock() {
     }
   }
 
+
+
   return (
     <div className="stoc_main">
       <div className="stock_loder"  Style={`display:${stock_store.stock_load?"block":"none"}`} ><div className="loder_icon_stock"> <CircularProgress   isIndeterminate color="green.300" /></div></div>
@@ -113,11 +116,11 @@ export default function Stock() {
         <Flex className="modal">
           <div>
             <Image src={edit_values.image} />
-            <Text>{edit_values.title}</Text>
-            <Text>{edit_values.price}</Text>
-            <Text>{edit_values.count}</Text>
-            <Text>{edit_values.category}</Text>
-            <Text>{edit_values.color}</Text>
+            <Text>- {edit_values.title}</Text>
+            <Text>- {edit_values.category}</Text>
+            <Text>- $ {edit_values.price}</Text>
+            <Text>- {edit_values.count} Pieces</Text>
+            <Text>- {edit_values.color}</Text>
           </div>
           <div>
             <Input value={edit_values.image} />
@@ -159,7 +162,7 @@ export default function Stock() {
               pointerEvents="none"
               children={<SearchIcon color="gray.300" />}
             />
-            <Input type="text" placeholder="Search" Style={"border-radius:50px"} />
+            <Input type="text" placeholder="Search" Style={"border-radius:50px"}  />
           </InputGroup>
         </div>
       </div>

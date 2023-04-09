@@ -81,7 +81,7 @@ background-color: #FAFBFD;
     top: 50%;
     left: 50%;
     backdrop-filter: blur(1px);
-     
+     z-index: 20;
     
 
 }
@@ -97,7 +97,7 @@ background-color: #FAFBFD;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
 width: 50%;
 margin: auto;
-background-color: rgb(148, 188, 235);
+background-color:#e2e2e2;
 }
 
 .modal input{

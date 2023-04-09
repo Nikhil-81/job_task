@@ -49,12 +49,8 @@ let setting_pages=[
 
 ]
 export default  memo( function Sidebar(){
-    const [tab,settab]=useState("")
-    const param=useParams()
-    console.log(window.location.href)
-function hendleClick(e){
-    console.log(e.target.id)
-}
+    const [tab,settab]=useState()
+
     return (
         <div className="sidebar">
             <div className="sidebar_main_cont">
